@@ -1,7 +1,6 @@
-import { Client } from 'discord.js'
 import http from 'http'
 
-import { isNumber } from 'lodash'
+import { Client } from 'discord.js'
 
 import { getHentaiById } from './services/getHentaiById'
 
@@ -27,25 +26,25 @@ client.on('message', async message => {
 
             if (message.channel !== null) message.channel.send(hentai)
           } catch {
-            if (message.reply !== null) message.reply(`Could not get data properly from server`)
+            if (message.channel !== null) message.channel.send(`Could not get data properly from server`)
           }
-        } else if (isNumber(key)) {
+        } else if (Number.isSafeInteger(Number(key))) {
           // Get from ID
           try {
             const hentai = await getHentaiById(key)
 
             if (message.channel !== null) message.channel.send(hentai)
           } catch {
-            if (message.reply !== null) message.reply(`Could not find hentai in NHentai with ID ${key}`)
+            if (message.channel !== null) message.channel.send(`Could not find hentai in NHentai with ID ${key}`)
           }
         } else {
           // Search
-          if (message.reply !== null) message.reply('Sorry, search hentai by keyword feature is not available')
+          if (message.channel !== null) message.channel.send('Sorry, search hentai by keyword feature is not available')
         }
         
         break
       default:
-        if (message.reply !== null) message.reply('Command not found')
+        if (message.channel !== null) message.channel.send('Command not found')
         break
     }
   }
