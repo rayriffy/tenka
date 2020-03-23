@@ -1,6 +1,6 @@
 import { MessageEmbed } from 'discord.js'
 
-import { upperFirst } from 'lodash-es'
+import { upperFirst } from 'lodash'
 
 import { fetch } from '../core/fetch'
 

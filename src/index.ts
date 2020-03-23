@@ -1,7 +1,7 @@
 import { Client } from 'discord.js'
 import http from 'http'
 
-import { isNumber } from 'lodash-es'
+import { isNumber } from 'lodash'
 
 import { getHentaiById } from './services/getHentaiById'
 
