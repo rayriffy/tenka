@@ -6,7 +6,7 @@ import { isNumber } from 'lodash-es'
 import { getHentaiById } from './services/getHentaiById'
 
 const client = new Client()
-const { AUTH_TOKEN = '' } = process.env
+const { DISCORD_TOKEN = '' } = process.env
 
 client.on('ready', () => {
   console.log('Ready!')
@@ -51,6 +51,6 @@ client.on('message', async message => {
   }
 })
 
-client.login(AUTH_TOKEN)
+client.login(DISCORD_TOKEN)
 
 http.createServer().listen(3000)

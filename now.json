@@ -8,7 +8,7 @@
     }
   }],
   "env": {
-    "AUTH_TOKEN": "@tenka-token"
+    "DISCORD_TOKEN": "@tenka-token"
   },
   "routes": [{
     "src": "/(.*)",
